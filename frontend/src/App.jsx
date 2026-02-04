@@ -6,7 +6,7 @@ import ResultView from './components/PersonaResult/ResultView';
 import { Button } from './components/ui/Button';
 
 // Default API URL (can be overridden by .env)
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_URL = import.meta.env.VITE_API_URL || 'https://investor-dna-559078627637.asia-south1.run.app';
 
 function App() {
   const [view, setView] = useState('intro'); // intro, quiz, result
@@ -41,28 +41,9 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white font-sans selection:bg-indigo-500/30 selection:text-white flex flex-col">
 
-      {/* Navbar */}
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => setView('intro')}>
-            <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white font-bold text-lg">
-              F
-            </div>
-            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600">
-              Frantiger
-            </span>
-          </div>
-          <div>
-            <Button variant="ghost" size="sm" onClick={() => window.open('https://frantiger.com', '_blank')}>
-              Platform
-            </Button>
-          </div>
-        </div>
-      </nav>
-
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         <AnimatePresence mode="wait">
           {view === 'intro' && (
             <motion.div
@@ -70,46 +51,35 @@ function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="flex flex-col items-center justify-center text-center py-20 space-y-8"
+              className="flex flex-col items-center justify-center text-center min-h-[70vh] sm:min-h-[80vh] space-y-8 sm:space-y-12"
             >
-              <div className="inline-flex items-center px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-sm font-medium mb-4">
-                ✨ AI-Powered Investment Analysis
+              {/* Main Title */}
+              <div className="space-y-4">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 animate-gradient">
+                    Investor DNA
+                  </span>
+                </h1>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-300">
+                  Demo App
+                </h2>
               </div>
-              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 max-w-4xl">
-                Discover Your <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 animate-gradient">
-                  Investor Persona
-                </span>
-              </h1>
-              <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                Take our comprehensive quiz to uncover your investment style, strengths, and ideal opportunities using advanced AI analysis.
-              </p>
 
-              <div className="flex gap-4 pt-4">
-                <Button size="lg" className="rounded-full px-8 text-lg h-14 shadow-indigo-200 shadow-xl" onClick={startQuiz}>
+              {/* Start Analysis Button */}
+              <div className="pt-4 sm:pt-8">
+                <Button
+                  size="lg"
+                  className="rounded-full px-8 sm:px-12 text-base sm:text-lg h-12 sm:h-14 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 shadow-lg shadow-indigo-500/30 border-0 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-indigo-500/40"
+                  onClick={startQuiz}
+                >
                   Start Analysis
                 </Button>
-                <Button variant="outline" size="lg" className="rounded-full px-8 h-14">
-                  View Sample
-                </Button>
               </div>
 
-              <div className="pt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl opacity-80">
-                <div className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
-                  <div className="text-4xl mb-4">🤖</div>
-                  <h3 className="font-bold mb-2">AI Analysis</h3>
-                  <p className="text-slate-500 text-sm">Powered by GPT-4 and Claude for nuanced insights.</p>
-                </div>
-                <div className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
-                  <div className="text-4xl mb-4">📊</div>
-                  <h3 className="font-bold mb-2">Data Driven</h3>
-                  <p className="text-slate-500 text-sm">Based on 20+ data points from your preferences.</p>
-                </div>
-                <div className="p-6 bg-white rounded-2xl shadow-sm border border-slate-100">
-                  <div className="text-4xl mb-4">🎯</div>
-                  <h3 className="font-bold mb-2">Tailored Matches</h3>
-                  <p className="text-slate-500 text-sm">Get specific opportunity recommendations.</p>
-                </div>
+              {/* Decorative Elements */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-1/4 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-indigo-500/10 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
               </div>
             </motion.div>
           )}
@@ -122,7 +92,7 @@ function App() {
               exit={{ opacity: 0 }}
             >
               {error && (
-                <div className="max-w-4xl mx-auto mb-6 p-4 bg-red-50 text-red-700 rounded-xl border border-red-200">
+                <div className="max-w-4xl mx-auto mb-4 sm:mb-6 p-3 sm:p-4 bg-red-500/20 text-red-200 rounded-xl border border-red-500/30 text-sm sm:text-base">
                   {error}
                 </div>
               )}
@@ -146,13 +116,6 @@ function App() {
           )}
         </AnimatePresence>
       </main>
-
-      {/* Footer */}
-      <footer className="border-t border-slate-200 bg-white py-12 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 text-center text-slate-400">
-          <p>© 2024 Frantiger. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 }

@@ -49,16 +49,15 @@ const QuizView = ({ onSubmit, isLoading }) => {
     };
 
     const renderSingleSelect = (key, question) => (
-        <div key={key} className="mb-8 animate-in slide-in-from-bottom-5 fade-in duration-500">
-            <h3 className="text-lg font-semibold text-slate-800 mb-3 block">{question.label}</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div key={key} className="mb-6">
+            <h3 className="text-base font-semibold text-white mb-3">{question.label}</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {question.options.map(opt => (
                     <OptionCard
                         key={opt}
                         title={opt}
                         selected={answers[key] === opt}
                         onClick={() => handleSelect(key, opt)}
-                        className="h-full"
                     />
                 ))}
             </div>
@@ -66,24 +65,24 @@ const QuizView = ({ onSubmit, isLoading }) => {
     );
 
     const renderSlider = (key, question) => (
-        <div key={key} className="mb-10 p-6 bg-white rounded-xl border border-slate-200 shadow-sm animate-in slide-in-from-bottom-5 fade-in duration-500">
-            <h3 className="text-lg font-semibold text-slate-800 mb-2">{question.label}</h3>
-            <p className="text-sm text-slate-500 mb-6">{question.help}</p>
+        <div key={key} className="mb-6 p-5 bg-slate-800/60 rounded-xl border border-slate-700">
+            <h3 className="text-base font-semibold text-white mb-1">{question.label}</h3>
+            <p className="text-sm text-slate-400 mb-4">{question.help}</p>
 
             <div className="flex items-center justify-between gap-4">
-                <span className="text-sm font-medium text-slate-500">Stable</span>
+                <span className="text-sm font-medium text-slate-400 whitespace-nowrap">Stable</span>
                 <input
                     type="range"
                     min={question.min}
                     max={question.max}
                     value={answers[key]}
                     onChange={(e) => handleSelect(key, parseInt(e.target.value))}
-                    className="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-primary"
+                    className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-indigo-500"
                 />
-                <span className="text-sm font-medium text-slate-500">High Risk</span>
+                <span className="text-sm font-medium text-slate-400 whitespace-nowrap">High Risk</span>
             </div>
-            <div className="mt-4 text-center">
-                <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary font-bold">
+            <div className="mt-3 text-center">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-500/20 text-indigo-300 text-sm font-semibold">
                     Level: {answers[key]} / 5
                 </span>
             </div>
@@ -91,18 +90,18 @@ const QuizView = ({ onSubmit, isLoading }) => {
     );
 
     const renderMultiSelect = (key, question) => (
-        <div key={key} className="mb-8 animate-in slide-in-from-bottom-5 fade-in duration-500">
-            <h3 className="text-lg font-semibold text-slate-800 mb-3">{question.label}</h3>
+        <div key={key} className="mb-6">
+            <h3 className="text-base font-semibold text-white mb-3">{question.label}</h3>
             <div className="flex flex-wrap gap-2">
                 {question.options.map(opt => (
                     <button
                         key={opt}
                         onClick={() => handleMultiSelect(key, opt)}
                         className={cn(
-                            "px-4 py-2 rounded-full text-sm font-medium transition-all border",
+                            "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border-2",
                             answers[key]?.includes(opt)
-                                ? "bg-primary text-white border-primary shadow-md transform scale-105"
-                                : "bg-white text-slate-600 border-slate-200 hover:border-primary/50 hover:bg-slate-50"
+                                ? "bg-indigo-600 text-white border-indigo-500 shadow-lg shadow-indigo-500/25"
+                                : "bg-slate-800/50 text-slate-300 border-slate-600 hover:border-indigo-400 hover:bg-slate-700/50"
                         )}
                     >
                         {answers[key]?.includes(opt) && <span className="mr-2">✓</span>}
@@ -114,9 +113,9 @@ const QuizView = ({ onSubmit, isLoading }) => {
     );
 
     return (
-        <div className="max-w-4xl mx-auto pb-20">
+        <div className="max-w-4xl mx-auto pb-8">
             {/* Progress Stepper */}
-            <div className="mb-12">
+            <div className="mb-8">
                 <div className="flex items-center justify-between relative z-10">
                     {STEPS.map((step, idx) => {
                         const isActive = idx === currentStep;
@@ -124,24 +123,27 @@ const QuizView = ({ onSubmit, isLoading }) => {
                         return (
                             <div key={step.id} className="flex flex-col items-center">
                                 <div className={cn(
-                                    "w-10 h-10 rounded-full flex items-center justify-center font-bold mb-2 transition-all duration-300 border-2",
-                                    isActive ? "bg-primary text-white border-primary shadow-lg scale-110" :
-                                        isCompleted ? "bg-emerald-500 text-white border-emerald-500" : "bg-white text-slate-400 border-slate-200"
+                                    "w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm mb-2 transition-all duration-300 border-2",
+                                    isActive ? "bg-indigo-600 text-white border-indigo-500 shadow-lg shadow-indigo-500/50 scale-110" :
+                                        isCompleted ? "bg-emerald-500 text-white border-emerald-400" : "bg-slate-800 text-slate-400 border-slate-600"
                                 )}>
                                     {isCompleted ? "✓" : idx + 1}
                                 </div>
-                                <span className={cn("text-xs font-semibold uppercase tracking-wider hidden md:block", isActive ? "text-primary" : "text-slate-400")}>
+                                <span className={cn(
+                                    "text-xs font-semibold uppercase tracking-wide hidden sm:block",
+                                    isActive ? "text-indigo-400" : isCompleted ? "text-emerald-400" : "text-slate-500"
+                                )}>
                                     {step.title}
                                 </span>
                             </div>
                         )
                     })}
                     {/* Progress Bar Background */}
-                    <div className="absolute top-5 left-0 w-full h-1 bg-slate-100 -z-10" />
+                    <div className="absolute top-5 left-0 w-full h-0.5 bg-slate-700 -z-10" />
 
                     {/* Active Progress Bar */}
                     <motion.div
-                        className="absolute top-5 left-0 h-1 bg-primary -z-10"
+                        className="absolute top-5 left-0 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 -z-10"
                         initial={{ width: "0%" }}
                         animate={{ width: `${(currentStep / (STEPS.length - 1)) * 100}%` }}
                         transition={{ duration: 0.3 }}
@@ -150,8 +152,8 @@ const QuizView = ({ onSubmit, isLoading }) => {
             </div>
 
             {/* Main Content Card */}
-            <Card className="shadow-xl border-slate-200/60 min-h-[500px]">
-                <CardContent className="p-8">
+            <Card className="shadow-2xl border-slate-700/50 bg-slate-900/80 backdrop-blur-md overflow-hidden">
+                <CardContent className="p-6 sm:p-8 max-h-[65vh] overflow-y-auto">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={currentStep}
@@ -160,9 +162,9 @@ const QuizView = ({ onSubmit, isLoading }) => {
                             exit={{ opacity: 0, x: -20 }}
                             transition={{ duration: 0.3 }}
                         >
-                            <div className="mb-6">
-                                <h2 className="text-2xl font-bold text-slate-900">{STEPS[currentStep].title}</h2>
-                                <p className="text-slate-500">{STEPS[currentStep].description}</p>
+                            <div className="mb-6 pb-4 border-b border-slate-700/50">
+                                <h2 className="text-xl sm:text-2xl font-bold text-white">{STEPS[currentStep].title}</h2>
+                                <p className="text-slate-400 mt-1">{STEPS[currentStep].description}</p>
                             </div>
 
                             {/* Step 1: Goals */}
@@ -204,11 +206,11 @@ const QuizView = ({ onSubmit, isLoading }) => {
                                     {renderMultiSelect("deal_structures", MULTI_OPTIONS.deal_structures)}
                                     {renderMultiSelect("non_negotiables", MULTI_OPTIONS.non_negotiables)}
 
-                                    <div className="mb-8">
-                                        <h3 className="text-lg font-semibold text-slate-800 mb-2">Your Unique Insights</h3>
-                                        <p className="text-sm text-slate-500 mb-3">What is one lesson you never want to forget?</p>
+                                    <div className="mb-6">
+                                        <h3 className="text-base font-semibold text-white mb-2">Your Unique Insights</h3>
+                                        <p className="text-sm text-slate-400 mb-3">What is one lesson you never want to forget?</p>
                                         <textarea
-                                            className="w-full p-4 border border-slate-200 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent min-h-[120px]"
+                                            className="w-full p-4 bg-slate-800/60 border-2 border-slate-700 rounded-xl text-base text-white placeholder-slate-500 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all min-h-[100px] resize-none"
                                             placeholder="Example: Never enter a business where I do not trust the numbers..."
                                             value={answers.key_lesson || ''}
                                             onChange={(e) => handleSelect("key_lesson", e.target.value)}
@@ -222,28 +224,32 @@ const QuizView = ({ onSubmit, isLoading }) => {
             </Card>
 
             {/* Footer Navigation */}
-            <div className="flex justify-between items-center mt-8">
+            <div className="flex justify-between items-center mt-6 pt-4">
                 <Button
                     variant="ghost"
                     onClick={prevStep}
                     disabled={currentStep === 0 || isLoading}
-                    className={currentStep === 0 ? "opacity-0 pointer-events-none" : ""}
+                    className={cn(
+                        "text-slate-300 hover:text-white hover:bg-slate-800/80 px-6 py-2",
+                        currentStep === 0 ? "opacity-0 pointer-events-none" : ""
+                    )}
                 >
-                    <ChevronLeft className="w-4 h-4 mr-2" /> Back
+                    <ChevronLeft className="w-5 h-5 mr-2" /> Back
                 </Button>
 
-                <div className="flex gap-2">
-                    {/* Button Debugging/Next */}
-                    <Button onClick={nextStep} disabled={isLoading} className="w-32">
-                        {isLoading ? (
-                            <Loader2 className="w-4 h-4 animate-spin" />
-                        ) : currentStep === STEPS.length - 1 ? (
-                            "Generate"
-                        ) : (
-                            <>Next <ChevronRight className="w-4 h-4 ml-2" /></>
-                        )}
-                    </Button>
-                </div>
+                <Button
+                    onClick={nextStep}
+                    disabled={isLoading}
+                    className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold rounded-xl shadow-lg shadow-indigo-500/30 transition-all duration-200 hover:shadow-xl hover:shadow-indigo-500/40"
+                >
+                    {isLoading ? (
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                    ) : currentStep === STEPS.length - 1 ? (
+                        "Generate Persona"
+                    ) : (
+                        <>Next <ChevronRight className="w-5 h-5 ml-2" /></>
+                    )}
+                </Button>
             </div>
         </div>
     );
