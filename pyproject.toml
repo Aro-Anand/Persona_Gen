@@ -1,0 +1,18 @@
+[project]
+name = "persona-gen"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic==0.18.1",
+    "fastapi==0.109.0",
+    "google-genai>=1.46.0",
+    "openai>=2.16.0",
+    "pydantic==2.5.3",
+    "python-dotenv>=1.2.1",
+    "python-multipart==0.0.6",
+    "requests==2.31.0",
+    "streamlit==1.31.0",
+    "uvicorn[standard]==0.27.0",
+]
