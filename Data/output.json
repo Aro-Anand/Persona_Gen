@@ -1,0 +1,98 @@
+{
+  "persona_tags_generation": {
+    "max_tags": 6,
+    "unique_tags_only": true,
+    "output_format": "array of strings",
+    "example_output": [
+      "Low risk, stable",
+      "Hands-on hybrid",
+      "Medium term",
+      "Experienced operator",
+      "Systems focused"
+    ]
+  },
+  "tag_categories": [
+    {
+      "category": "Risk Tolerance",
+      "source_field": "risk_tolerance",
+      "type": "slider (1-5)",
+      "tags": {
+        "1-2": "Low risk, stable",
+        "3": "Mid risk - balanced",
+        "4-5": "High risk, high upside"
+      }
+    },
+    {
+      "category": "Involvement Level",
+      "source_field": "involvement_level",
+      "type": "single choice",
+      "tags": {
+        "Capital partner": "Capital partner",
+        "Co pilot": "Hands-on hybrid",
+        "Operator": "Active operator"
+      }
+    },
+    {
+      "category": "Time Horizon",
+      "source_field": "time_horizon",
+      "type": "single choice",
+      "tags": {
+        "Less than 2 years": "Short term",
+        "2-4 years": "Medium term",
+        "4-7 years or More than 7 years": "Long term"
+      }
+    },
+    {
+      "category": "Customer Segment",
+      "source_field": "customer_segment",
+      "type": "single choice",
+      "tags": {
+        "B2C": "B2C focused",
+        "B2B": "B2B focused"
+      }
+    },
+    {
+      "category": "Experience Level",
+      "source_field": "experience_level",
+      "type": "single choice",
+      "tags": {
+        "completely new": "New investor",
+        "small or mid size business or seasoned": "Experienced operator"
+      }
+    },
+    {
+      "category": "Priority Focus",
+      "source_field": "priority_focus",
+      "type": "single choice",
+      "tags": {
+        "People": "People first",
+        "Process": "Systems focused",
+        "Profit": "Returns driven"
+      }
+    }
+  ],
+  "profile_update_fields": [
+    "goal_primary",
+    "time_horizon",
+    "ticket_size",
+    "risk_tolerance",
+    "reaction_style",
+    "decision_style",
+    "involvement_level",
+    "time_per_week",
+    "partner_preference",
+    "sectors",
+    "customer_segment",
+    "brand_preference",
+    "geo_scope",
+    "deal_structures",
+    "non_negotiables",
+    "experience_level",
+    "key_lesson",
+    "priority_focus"
+  ],
+  "profile_flags": {
+    "profile_complete": true,
+    "is_profile_completed": true
+  }
+}

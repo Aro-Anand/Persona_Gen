@@ -1,0 +1,249 @@
+{
+  "questions": [
+    {
+      "step": 1,
+      "label": "Goals and intent",
+      "text": "Why are you exploring opportunities on Frantiger right now",
+      "type": "single",
+      "name": "goal_primary",
+      "options": [
+        "I want to invest capital and earn returns",
+        "I want to own and actively run a business",
+        "I want semi passive income that grows over time",
+        "I want to explore sectors before bigger bets",
+        "I am a consultant or broker looking for deals"
+      ],
+      "helper": "You can refine this later in your investor profile."
+    },
+    {
+      "step": 2,
+      "label": "Time horizon",
+      "text": "How long are you willing to stay invested before expecting strong returns",
+      "type": "single",
+      "name": "time_horizon",
+      "options": [
+        "Less than 2 years",
+        "2-4 years",
+        "4-7 years",
+        "More than 7 years"
+      ],
+      "helper": "This helps us avoid models that naturally take longer than you prefer."
+    },
+    {
+      "step": 3,
+      "label": "Ticket size",
+      "text": "What total amount are you comfortable deploying per opportunity",
+      "type": "single",
+      "name": "ticket_size",
+      "options": [
+        "Up to ₹5 lakh",
+        "₹5-15 lakh",
+        "₹15-50 lakh",
+        "₹50 lakh-₹2 crore",
+        "Above ₹2 crore"
+      ],
+      "helper": "This is a comfort range, not a binding commitment."
+    },
+    {
+      "step": 4,
+      "label": "Risk appetite",
+      "text": "When it comes to business risk, where do you naturally sit",
+      "type": "slider",
+      "name": "risk_tolerance",
+      "min": 1,
+      "max": 5,
+      "labels": [
+        "Stable and predictable",
+        "",
+        "Balanced",
+        "",
+        "High risk, high upside"
+      ],
+      "helper": "This helps us avoid deals that feel too wild or too boring for you."
+    },
+    {
+      "step": 5,
+      "label": "Behavior",
+      "text": "If your business reports a bad quarter, what are you most likely to do first",
+      "type": "single",
+      "name": "reaction_style",
+      "options": [
+        "Pause and review numbers calmly",
+        "Call the operator or founder to understand",
+        "Plan to exit and protect capital",
+        "Look at the long term and stay the course"
+      ]
+    },
+    {
+      "step": 6,
+      "label": "Decision style",
+      "text": "How would you describe your decision making style for investments",
+      "type": "single",
+      "name": "decision_style",
+      "options": [
+        "Very quick, I go with my gut",
+        "Fairly quick, once key data is clear",
+        "I take my time, I like deep research",
+        "I move very slowly and cautiously"
+      ]
+    },
+    {
+      "step": 7,
+      "label": "Involvement",
+      "text": "How hands on do you want to be in your ideal opportunity",
+      "type": "single",
+      "name": "involvement_level",
+      "options": [
+        "Capital partner - I write the cheque, someone else runs the show",
+        "Co pilot - I support and guide, a manager or founder runs it",
+        "Operator - I want to be in the driver seat daily"
+      ],
+      "helper": "This strongly affects what kind of listings we show you first."
+    },
+    {
+      "step": 8,
+      "label": "Time available",
+      "text": "How much time can you realistically give per week",
+      "type": "single",
+      "name": "time_per_week",
+      "options": [
+        "0-2 hours",
+        "2-5 hours",
+        "5-10 hours",
+        "10-20 hours",
+        "Full time"
+      ]
+    },
+    {
+      "step": 9,
+      "label": "People you like working with",
+      "text": "Who do you prefer to work with the most",
+      "type": "single",
+      "name": "partner_preference",
+      "options": [
+        "A strong brand that already has systems in place",
+        "Scrappy founders building systems now",
+        "Professional management teams and COOs"
+      ]
+    },
+    {
+      "step": 10,
+      "label": "Sectors",
+      "text": "Which sectors are you genuinely excited about right now",
+      "type": "multi",
+      "name": "sectors",
+      "options": [
+        "Food and beverage",
+        "Education and upskilling",
+        "Health and wellness",
+        "Retail and lifestyle",
+        "Tech and SaaS",
+        "Manufacturing and industrial",
+        "Services and consulting",
+        "I am open if economics are strong"
+      ],
+      "helper": "You can pick more than one. We will not force you into sectors you are not excited about."
+    },
+    {
+      "step": 11,
+      "label": "Customer types",
+      "text": "Which type of customers do you feel most comfortable dealing with",
+      "type": "single",
+      "name": "customer_segment",
+      "options": [
+        "B2C - consumers, families, walk in users",
+        "B2B - companies and institutions",
+        "B2G - government and tenders",
+        "A mix is fine"
+      ]
+    },
+    {
+      "step": 12,
+      "label": "Brand vs upside",
+      "text": "If you had to choose, what would you prefer",
+      "type": "single",
+      "name": "brand_preference",
+      "options": [
+        "A well known brand that grows steadily",
+        "A lesser known brand with higher upside potential",
+        "Depends on the numbers, not the name"
+      ]
+    },
+    {
+      "step": 13,
+      "label": "Geography",
+      "text": "Where are you most interested in investing or operating",
+      "type": "multi",
+      "name": "geo_scope",
+      "options": [
+        "Only my city",
+        "Within my state",
+        "Across India",
+        "Open to cross border opportunities"
+      ]
+    },
+    {
+      "step": 14,
+      "label": "Deal structures",
+      "text": "What kind of deal structures appeal to you the most",
+      "type": "multi",
+      "name": "deal_structures",
+      "options": [
+        "Single franchise I own and run",
+        "Multiple franchises I own with managers",
+        "Revenue or profit share deals",
+        "Fractional ownership or pooling",
+        "I am open to all, show me what is good"
+      ]
+    },
+    {
+      "step": 15,
+      "label": "Non negotiables",
+      "text": "What is absolutely non negotiable for you in any opportunity",
+      "type": "multi",
+      "name": "non_negotiables",
+      "options": [
+        "Clear unit economics",
+        "Strong compliance and legal hygiene",
+        "Brand reputation and ethics",
+        "Scalable model, not one location only",
+        "Skin in the game from founder or brand"
+      ]
+    },
+    {
+      "step": 16,
+      "label": "Experience",
+      "text": "What best describes your experience so far",
+      "type": "single",
+      "name": "experience_level",
+      "options": [
+        "I am completely new",
+        "I have run a small or mid size business",
+        "I have invested in or backed businesses before",
+        "I am a seasoned founder, investor or operator"
+      ]
+    },
+    {
+      "step": 17,
+      "label": "Lessons",
+      "text": "What is one lesson you never want to forget from past business or investment experience",
+      "type": "textarea",
+      "name": "key_lesson",
+      "placeholder": "Example: Never enter a business where I do not trust the numbers or the people.",
+      "helper": "This helps us understand your values and red flags more deeply."
+    },
+    {
+      "step": 18,
+      "label": "What comes first",
+      "text": "If you had to choose, what comes first for you",
+      "type": "single",
+      "name": "priority_focus",
+      "options": [
+        "People - team, founders, operators",
+        "Process - systems, playbooks, controls",
+        "Profit - margins, payback, upside"
+      ],
+      "helper": "This helps us prioritize which signals to highlight first when you look at a deal."
+    }
+  ]
+}
