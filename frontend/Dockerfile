@@ -8,9 +8,8 @@ RUN npm install -g pnpm
 
 # Copy package files
 COPY package*.json ./
-COPY pnpm-lock.yaml ./pnpm-lock.yaml 2>/dev/null || :
 
-# Install dependencies with pnpm (without frozen-lockfile if lock file doesn't exist)
+# Install dependencies with pnpm
 RUN pnpm install
 
 # Copy all source files
