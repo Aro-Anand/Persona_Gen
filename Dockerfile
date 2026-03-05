@@ -13,7 +13,7 @@ COPY prompt.py .
 COPY Data/ ./Data/
 
 # Expose port
-EXPOSE 8080
+EXPOSE 9090
 
 # Run with Cloud Run's expected port
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "9090"]
