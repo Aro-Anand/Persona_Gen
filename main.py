@@ -54,6 +54,7 @@ else:
 
 # Request Models
 class QuizAnswers(BaseModel):
+    username: Optional[str] = None
     goal_primary: Optional[str] = None
     time_horizon: Optional[str] = None
     ticket_size: Optional[str] = None
